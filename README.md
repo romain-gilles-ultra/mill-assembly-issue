@@ -14,17 +14,19 @@ OpenJDK 64-Bit Server VM Temurin-11.0.19+7 (build 11.0.19+7, mixed mode)
 
 ### Scala
 ```
-scala --version                                                                                                                          Scala code runner version 2.13.11 -- Copyright 2002-2023, LAMP/EPFL and Lightbend, Inc.
+> scala -version
+Scala code runner version 2.13.11 -- Copyright 2002-2023, LAMP/EPFL and Lightbend, Inc.
 
 ```
 
 ### Mill
 ```
-./mill version                                                                                                                           [1/1] version 
+> ./mill version
+[1/1] version 
 0.11.0-19-d4e35f
 ```
 
-### Description
+## Description
 
 Try to create an assembly of a project to run it with `java -jar foo.jar` but fail
 I reproduce a bug I get in my project with a simple project and fiew but not small dependency.
@@ -46,7 +48,7 @@ Error: An unexpected error occurred while trying to open file out/foo/assembly.d
 
 If you try the following it will work:
 ```
-./mill foo.run --text tutu
+> ./mill foo.run --text tutu
 [48/48] foo.run 
 <h1>tutu</h1>
 ```
@@ -97,3 +99,7 @@ java.util.zip.ZipException: invalid CEN header (bad signature)
 ```
 
 BTW This works with `sbt` assembly
+
+## To reproduce
+
+Uncomment either `ivy"dev.zio::zio:2.0.15"` or `ivy"org.typelevel::cats-core:2.9.0"`
